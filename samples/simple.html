@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="../styles/swiftsuggest.css" />
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 360px;
+            margin: 0 auto;
+            margin-top: 130px;
+        }
+    </style>
+    <script src="../lib/angular.js" type="text/javascript"></script>
+    <script src="../src/angular.swiftsuggest.js" type="text/javascript"></script>
+    <script src="samples.js" type="text/javascript"></script>
+</head>
+<body ng-app="SampleApp">
+
+    <div id="container" ng-controller="SimpleController">
+        <swift-suggest
+            placeholder="Search For Users"
+            items="moderators"
+            min="2"
+            model="term"
+            update="updateSuggestions"
+            select="selectModerator">
+            <img height="auto" width="80px;" src="http://contactly.app/files/photos/defaults/user.png" />
+            <p><b ng-bind-html="item.name | swiftHighlight : model"></b></p>
+            <p>{{ item.description }}</p>
+        </swift-suggest>
+
+        <div id="user" ng-show="selectedModerator != null">
+            {{ selectedModerator.name }}
+        </div>
+
+    </div>
+</body>
+</html>
