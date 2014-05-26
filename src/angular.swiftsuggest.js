@@ -8,7 +8,7 @@ swiftsuggest.directive('swiftSuggest', function() {
     scope: {
       items: '=items',
       placeholder: '@placeholder',
-      min: '@min',
+      minChars: '@minChars',
       model: '=model',
       update: '=update',
       select: '=select'
@@ -19,7 +19,7 @@ swiftsuggest.directive('swiftSuggest', function() {
       }
     ],
     link: function(scope, elem, attr) {
-      var minLength = parseInt(scope.min || 3),
+      var minLength = parseInt(scope.minChars || 3),
         index = -1,
         keys = {TAB: 9, ESC: 27, RETURN: 13, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40};
 
@@ -198,14 +198,14 @@ swiftsuggest.directive('swiftSuggestion', function() {
         if (dom[1]) {
           element.append(dom);
         } else {
-          element.append('<span ng-bind-html="item | swiftHighlight: model"></span>');
+          element.append('<span ng-bind-html="item | swiftSuggestHighlight: model"></span>');
         }
       });
     }
   };
 });
 
-swiftsuggest.filter('swiftHighlight', [
+swiftsuggest.filter('swiftSuggestHighlight', [
   '$sce', function($sce) {
     return function(input, searchTerm) {
       if (searchTerm) {

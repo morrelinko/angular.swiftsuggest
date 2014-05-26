@@ -28,17 +28,17 @@
 <body ng-app="SampleApp">
 
     <div id="container" ng-controller="SimpleController">
-        <swift-suggest
+        <div swift-suggest
             placeholder="Search For Users"
             items="moderators"
-            min="2"
+            min-chars="2"
             model="term"
             update="updateSuggestions"
             select="selectModerator">
-            <img height="auto" width="80px;" src="http://contactly.app/files/photos/defaults/user.png" />
-            <p><b ng-bind-html="item.name | swiftHighlight : model"></b></p>
+            <img height="auto" ng-src="http://lorempixel.com/30/30/sports/" />
+            <p>{{ term }}<b ng-bind-html="item.name | swiftSuggestHighlight : model"></b></p>
             <p>{{ item.description }}</p>
-        </swift-suggest>
+        </div>
 
         <div id="user" ng-show="selectedModerator != null">
             {{ selectedModerator.name }}
