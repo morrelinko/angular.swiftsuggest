@@ -65,26 +65,26 @@ described below.
 [JavaScript]:
 
 ```javascript
-	var app = angular.module('app', ['swiftsuggest']);
+var app = angular.module('app', ['swiftsuggest']);
 
-	app.controller('ModeratorsCtrl', function($scope){
-		$scope.users = []; // will hold an array of matched user (which we'll get from the server)
-		$scope.user = {}; // will hold the selected user
+app.controller('ModeratorsCtrl', function($scope){
+    $scope.users = []; // will hold an array of matched user (which we'll get from the server)
+    $scope.user = {}; // will hold the selected user
 
-		$scope.getUserSuggestions = function(searchTerm){
-		    User.find(searchTerm).then(function(moderators) {
-		        $scope.users = users;
-		    });
-		};
+    $scope.getUserSuggestions = function(searchTerm){
+        User.find(searchTerm).then(function(moderators) {
+            $scope.users = users;
+        });
+    };
 
-		$scope.selectUser = function(user) {
-            $scope.user = user;
-		};
+    $scope.selectUser = function(user) {
+        $scope.user = user;
+    };
 
-		$scope.assignModerator = function(user) {
-            //
-		};
-	});
+    $scope.assignModerator = function(user) {
+        //
+    };
+});
 ```
 
 See the samples/moderators.js for full code
