@@ -7,11 +7,11 @@ swiftsuggest.directive('swiftSuggest', function() {
     transclude: true,
     scope: {
       items: '=items',
-      placeholder: '@placeholder',
+      inputPlaceholder: '@attrInputPlaceholder',
       minChars: '@minChars',
       model: '=model',
-      update: '=update',
-      select: '=select'
+      suggest: '=onSuggest',
+      select: '=onSelect'
     },
     controller: [
       '$scope', '$transclude', function($scope, $transclude) {
@@ -103,7 +103,7 @@ swiftsuggest.directive('swiftSuggest', function() {
         }
 
         // If the constraints are passed, fetch the data based on the term
-        scope.update && scope.update(scope.model);
+        scope.suggest && scope.suggest(scope.model);
       });
 
       scope.$watch('items', function() {

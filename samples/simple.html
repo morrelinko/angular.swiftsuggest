@@ -33,8 +33,8 @@
             items="moderators"
             min-chars="2"
             model="term"
-            update="updateSuggestions"
-            select="selectModerator">
+            on-suggest="updateSuggestions"
+            on-select="selectModerator">
             <img height="auto" ng-src="http://lorempixel.com/30/30/sports/" />
             <p>{{ term }}<b ng-bind-html="item.name | swiftSuggestHighlight : model"></b></p>
             <p>{{ item.description }}</p>
