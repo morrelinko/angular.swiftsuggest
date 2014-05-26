@@ -43,7 +43,7 @@ described below.
 
 `min-chars`: [optional] minimum number of characters before swiftsuggest start sending requests to your server for suggestions.
 
-`attr-input-placeholder`: [optional] Sets desired text as placeholder into the input element of autocomplete directive. By default it's "start typing..."
+`attr-input-placeholder`: [optional] Sets desired text as placeholder into the swiftsuggest input element.
 
 #### Example
 
@@ -89,7 +89,7 @@ app.controller('ModeratorsCtrl', function($scope){
 
 See the samples/moderators.js for full code
 
-### Custom Suggestions HTMl
+### Custom Suggestions HTML
 
 ```html
 <div ng-controller="ModeratorsCtrl">
