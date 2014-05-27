@@ -55,12 +55,12 @@ described below.
 ```html
 <div ng-controller="ModeratorsCtrl">
     <swift-suggest
-        placeholder="Search For Users"
         items="user"
         min-chars="2"
         model="term"
         on-suggest="getUserSuggestions"
-        on-select="selectUser">
+        on-select="selectUser"
+        attr-input-placeholder="Search For Users">
     </swift-suggest>
 </div>
 ```
