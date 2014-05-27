@@ -23,6 +23,9 @@ Then download swiftsuggest, add the stylesheet and javascript file to your web p
 
 Then add `swiftsuggest` as one of your applications module dependencies.
 
+```javascript
+var app = angular.module('YourApp', ['swiftsuggest']);
+```
 
 ### Usage
 
